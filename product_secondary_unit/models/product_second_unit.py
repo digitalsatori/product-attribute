@@ -1,7 +1,7 @@
 # Copyright 2018 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-
+from odoo.addons import decimal_precision as dp
 
 class ProductSecondaryUnit(models.Model):
     _name = 'product.secondary.unit'
@@ -26,7 +26,7 @@ class ProductSecondaryUnit(models.Model):
     factor = fields.Float(
         string='Secondary Unit Factor',
         default=1.0,
-        digits=0,
+        digits=dp.get_precision('Product Unit of Measure'),
         required=True,
     )
 
